@@ -16,25 +16,7 @@ var x=
               "sub3":[{"x":100,"y":120}, {"x":10,"y":20}, {"x":50,"y":30}]
 }};
                     
-(function ( $ ) {    
-$.fn.json2input = function(o){
-                var e=[];
-                (function f(v, k){ 
-                   if (typeof v == "object") {
-                     for (var kp in v) {
-                       if (Object.hasOwnProperty.call(v, kp)) { 
-                         (f(v[kp], k != undefined ? k + "[" + kp + "]" : kp));
-                         }
-                     } 
-                   } 
-                   else { 
-                     e.push("<input type=\"hidden\" name=\""+k+"\" value=\""+v+"\" />");
-                   }
-               })(o);
-			   this.append("<form>"+e.join(" ")+"</form>");
 
-               return this;
-}}( jQuery ));
 $(document).ready(function(){
            console.log($('body').json2input(x));
 });
